@@ -9,6 +9,13 @@ def handle_outlers(df):
     
     # Filter out outliers
     df_filtered = df[~((df < (Q1 - 1.5*IQR)) | (df > (Q3 + 1.3*IQR))).any(axis=1)]
+    
+    #ALternative Appriach
+    """
+    lower = Q1 - 1.5*IQR
+    upper = Q3 + 1.5*IQR
+    df_filtered = df.clip(lower=lower, upper=upper, axis=1)
+    """
     return df_filtered
 
 
@@ -29,4 +36,10 @@ def main():
     
     # Initalize model
     lr = LinearRegression()
+    
+    # Train model
+    lr.fit(X_train, y_train)
+    
+    # Predict Model
+    
     
