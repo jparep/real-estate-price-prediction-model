@@ -52,7 +52,7 @@ def main():
     
     # Save model
     with open('models/model.joblib', 'wb') as f:
-        joblib.dump(f)
+        joblib.dump(lr, f)
     
 
 if __name__=='__main__':
