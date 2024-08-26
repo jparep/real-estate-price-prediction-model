@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+import joblib
 
 def handle_outlers(df):
     Q1 = df.quantile(0.25)
@@ -26,7 +27,7 @@ def main():
     df = df.drop('Address', axis=1)
     
     # Remove outliers
-    df = handle_outlers(df)
+    #df = handle_outlers(df)
     
     # Separate into features and target variables
     X = df.drop('Price', axis=1)
@@ -45,9 +46,13 @@ def main():
     y_pred = lr.predict(X_test)
     
     # Evaluate Model
-    print(f'MAE: {mean_absolute_error(y_test, y_pred)}')
-    print(f'MSE: {mean_squared_error(y_test, y_pred)}')
+    print(f'MAE: {mean_absolute_error(y_test, y_pred):,.2f}')
+    print(f'MSE: {mean_squared_error(y_test, y_pred):,.2f}')
     print(f'R2: {r2_score(y_test, y_pred)*100:.2f}%')
+    
+    # Save model
+    with open('models/model.joblib', 'wb') as f:
+        joblib.dump(f)
     
 
 if __name__=='__main__':
