@@ -4,22 +4,20 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import joblib
 
-def handle_outlers(df):
+def handle_outliers(df):
     Q1 = df.quantile(0.25)
     Q3 = df.quantile(0.75)
     IQR = Q3 - Q1
     
     # Filter out outliers
-    df_filtered = df[~((df < (Q1 - 1.5*IQR)) | (df > (Q3 + 1.3*IQR))).any(axis=1)]
+    df_filtered = df[~((df < (Q1 - 1.5*IQR)) | (df > (Q3 + 1.5*IQR))).any(axis=1)]
     
-    #ALternative Appriach
-    """
-    lower = Q1 - 1.5*IQR
-    upper = Q3 + 1.5*IQR
-    df_filtered = df.clip(lower=lower, upper=upper, axis=1)
-    """
+    # Alternative Approach:
+    # lower = Q1 - 1.5*IQR
+    # upper = Q3 + 1.5*IQR
+    # df_filtered = df.clip(lower=lower, upper=upper, axis=1)
+    
     return df_filtered
-
 
 def main():
     # Load Data
@@ -27,16 +25,16 @@ def main():
     df = df.drop('Address', axis=1)
     
     # Remove outliers
-    #df = handle_outlers(df)
+    # df = handle_outliers(df)
     
     # Separate into features and target variables
     X = df.drop('Price', axis=1)
     y = df['Price']
     
-    # SPlit data into train and test set
-    X_train, X_test, y_train, y_test =train_test_split(X,y, test_size=0.2, random_state=12)
+    # Split data into train and test set
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=12)
     
-    # Initalize model
+    # Initialize model
     lr = LinearRegression()
     
     # Train model
@@ -53,7 +51,6 @@ def main():
     # Save model
     with open('models/model.joblib', 'wb') as f:
         joblib.dump(lr, f)
-    
 
-if __name__=='__main__':
+if __name__ == '__main__':
     main()
