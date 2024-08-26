@@ -47,8 +47,8 @@ def main():
     # Evaluate Model
     print(f'MAE: {mean_absolute_error(y_test, y_pred)}')
     print(f'MSE: {mean_squared_error(y_test, y_pred)}')
-    print(f'R2: {r2_score(y_test, y_pred)}')
+    print(f'R2: {r2_score(y_test, y_pred)*100:.2f}%')
     
 
-if __name__='__main__':
+if __name__=='__main__':
     main()
