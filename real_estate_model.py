@@ -41,5 +41,7 @@ def main():
     lr.fit(X_train, y_train)
     
     # Predict Model
+    y_pred = lr.predict(X_test)
+    
     
     
