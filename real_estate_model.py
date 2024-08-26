@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 def handle_outlers(df):
     Q1 = df.quantile(0.25)
@@ -32,7 +33,7 @@ def main():
     y = df['Price']
     
     # SPlit data into train and test set
-    X_train, X_test, y_train, y_tet =train_test_split(X,y, test_size=0.2, random_state=12)
+    X_train, X_test, y_train, y_test =train_test_split(X,y, test_size=0.2, random_state=12)
     
     # Initalize model
     lr = LinearRegression()
@@ -43,5 +44,11 @@ def main():
     # Predict Model
     y_pred = lr.predict(X_test)
     
+    # Evaluate Model
+    print(f'MAE: {mean_absolute_error(y_test, y_pred)}')
+    print(f'MSE: {mean_squared_error(y_test, y_pred)}')
+    print(f'R2: {r2_score(y_test, y_pred)}')
     
-    
+
+if __name__='__main__':
+    main()
