@@ -1,0 +1,17 @@
+Bottleneck @ file:///croot/bottleneck_1709069899917/work
+joblib @ file:///croot/joblib_1718217211762/work
+mkl-fft @ file:///work/perseverance-python-buildout/croot/mkl_fft_1698845673361/work
+mkl-random @ file:///work/perseverance-python-buildout/croot/mkl_random_1698845720894/work
+mkl-service==2.4.0
+numexpr @ file:///work/perseverance-python-buildout/croot/numexpr_1698871031164/work
+numpy @ file:///croot/numpy_and_numpy_base_1708638617955/work/dist/numpy-1.26.4-cp312-cp312-linux_x86_64.whl#sha256=1d700f51d8b4fa684d858c9e3b56b1656bc5c82b6b79ff08d4e3b491c430059f
+pandas @ file:///croot/pandas_1718308974269/work/dist/pandas-2.2.2-cp312-cp312-linux_x86_64.whl#sha256=92c518f7e09edd50b5caa5862636c51d6a29391803f3ada62f68aa52f27d8f92
+python-dateutil @ file:///croot/python-dateutil_1716495738603/work
+pytz @ file:///croot/pytz_1713974312559/work
+scikit-learn @ file:///home/conda/feedstock_root/build_artifacts/scikit-learn_1719998091999/work/dist/scikit_learn-1.5.1-cp312-cp312-linux_x86_64.whl#sha256=67792e358aac20df1b7a20c4cc9f00269449d382e15c1d403bf76d77b7de0a03
+scipy @ file:///home/conda/feedstock_root/build_artifacts/scipy-split_1724327061663/work/dist/scipy-1.14.1-cp312-cp312-linux_x86_64.whl#sha256=273d4a0dca8845537bb3b7a02f60b5c84296e444f352aff32292ded3941d0b0f
+setuptools==72.1.0
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+threadpoolctl @ file:///home/conda/feedstock_root/build_artifacts/threadpoolctl_1714400101435/work
+tzdata @ file:///croot/python-tzdata_1690578112552/work
+wheel==0.43.0

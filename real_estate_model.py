@@ -23,7 +23,6 @@ def main():
     # Load Data
     df = pd.read_csv('data/USA_Housing.csv')
     df = df.drop('Address', axis=1)
-    
     # Remove outliers
     # df = handle_outliers(df)
     
@@ -31,6 +30,7 @@ def main():
     X = df.drop('Price', axis=1)
     y = df['Price']
     
+    print(X.columns)
     # Split data into train and test set
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=12)
     
